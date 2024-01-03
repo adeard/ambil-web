@@ -1,11 +1,16 @@
 import React from 'react';
-import { Layout, theme, Col, Row } from 'antd';
+import { Layout, theme } from 'antd';
 import BreadcrumbMenu from '../Elements/Breadcrumb/BreadcrumbMenu';
 import ItemList from '../Fragments/ItemList';
+import CarouselFrag from '../Fragments/CarouselFrag';
+import TabHomeFrag from '../Fragments/TabHomeFrag';
+import SearchBox from '../Fragments/SearchBox';
 
 const { Content } = Layout;
 
 function ContentLayout() {
+    const onSearch = (value, _e, info) => console.log(info?.source, value);
+
     const {
         token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
@@ -19,7 +24,13 @@ function ContentLayout() {
                 background: colorBgContainer,
                 borderRadius: borderRadiusLG,
             }}>
+                <CarouselFrag />
+                <br />
+                <SearchBox />
+                <br />
                 <ItemList />
+                <br />
+                <TabHomeFrag />
             </div>
         </Content>
     )
